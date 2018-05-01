@@ -24,7 +24,7 @@ class WindowFrame:
         while running:
             pygame.display.update()
             player.input(player)
-
+            print("test")
 
 
             screen.blit(self.obj.move_object(self.obj, 20, 20), (0, self.obj.get_pos_x(self.obj)))
