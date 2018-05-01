@@ -23,14 +23,14 @@ class WindowFrame:
         while running:
             screen.fill((20, 10, 10))
 
-            player.input(player)
 
-
+            timedelta = clock.tick(30)
+            timedelta /= 1000;
 
             screen.blit(self.obj.move_object(self.obj, 20, 20), (0, self.obj.get_pos_x(self.obj)))
-            screen.blit(player.update(player), (player.get_pos_x(player), player.get_pos_y(player)))
+            screen.blit(player.update(player,timedelta), (player.get_pos_x(player), player.get_pos_y(player)))
             pygame.display.flip()
-            clock.tick(60)
+
 
 
 WindowFrame.update(WindowFrame)
