@@ -12,4 +12,4 @@ class GameObject(Collider):
     def move_object(self, x, y):
         self.set_pos_x(self,x)
         self.set_pos_y(self,y)
-        return self.sprite.draw_sprite(self,(64, 64, 64))
+        return self.sprite.draw_sprite_color(self,(64, 64, 64))
