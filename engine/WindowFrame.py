@@ -7,7 +7,7 @@ player = Player.Player
 class WindowFrame:
     sprite = Sprite.Sprite()
     obj = GameObject.GameObject
-
+  #  player.setup_animation_controller(player)
 
     def update(self):
         pygame.init()
