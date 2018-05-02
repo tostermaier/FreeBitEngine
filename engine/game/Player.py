@@ -42,5 +42,5 @@ class Player(GameObject):
         if (self.walk == True):
 
             self.current_sprite = self.play_walk_animation(self)
-            print (self.current_sprite)
+
         return self.sprite.draw_sprite_image(self,self.current_sprite, 64, 64)

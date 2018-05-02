@@ -1,5 +1,6 @@
 from engine.graphic.Sprite import Sprite
 
+
 class Animation:
     animation_state = 0
     sprite = Sprite
@@ -32,10 +33,9 @@ class Animation:
 
     def play_animation(self,timing):
         self.animation_timer += timing
-        print(    self.animation_timer)
-        if(self.animation_timer>=1):
+        if( self.animation_timer >= 1):
 
-            if(self.get_animation_state()<len(self.get_sprites())):
+            if( self.get_animation_state()<len(self.get_sprites())):
                 self.set_current_sprite(self.get_sprite_from_sprites(self.get_animation_state()))
                 self.set_animation_state(self.get_animation_state() + 1)
 
@@ -44,5 +44,5 @@ class Animation:
                 self.set_animation_state(0)
 
             self.animation_timer = 0
-            print (self.get_current_sprite())
+
         return self.current_sprite
