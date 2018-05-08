@@ -13,11 +13,15 @@ class Player(GameObject):
     animation = Animation()
     animation.set_sprites(walk_sprite)
     def __init__(self):
-        self.setup_animation_controller()
+        pass
+
+
 
 
     def setup(self):
+     #   self.setup_collider(self,64,64,self.get_pos_x(self),self.get_pos_y(self))
         pass
+
 
     def input(self, timestep):
 
@@ -25,7 +29,11 @@ class Player(GameObject):
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if pygame.key.get_pressed()[pygame.K_d]:
-                    self.set_pos_x(self,self.get_pos_x(self)+100*timestep)
+                    self.move_object(self,30,0)
+
+                    print(self.rect.x)
+                   # self.move_object(self,self.get_rect_position((self)+100*timestep),self.get_pos_y(self))
+                   # self.set_pos_x(self,self.get_pos_x(self)+100*timestep)
                     self.walk = True
             else:
                 self.walk = False
@@ -37,10 +45,10 @@ class Player(GameObject):
         return self.animation.get_current_sprite()
 
     def update(self, timestep):
-     #   self.setup_animation_controller(self)
         self.input(self,timestep)
         if (self.walk == True):
 
             self.current_sprite = self.play_walk_animation(self)
-
-        return self.sprite.draw_sprite_image(self,self.current_sprite, 64, 64)
+        self.rect.x +=1
+        print(self.rect)
+        return self.draw_sprite_image(self,self.current_sprite, 64, 64)

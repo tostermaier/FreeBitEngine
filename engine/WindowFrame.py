@@ -11,9 +11,9 @@ class WindowFrame:
 
     def update(self):
         pygame.init()
-
+      #  player.setup(player)
         screen = pygame.display.set_mode((800, 600))
-
+        self.obj.draw_sprite_color(self.obj,(20,20,100));
         clock = pygame.time.Clock()
         pygame.key.set_repeat(5, 5)
 
@@ -27,8 +27,9 @@ class WindowFrame:
             timedelta = clock.tick(30)
             timedelta /= 1000;
 
-            screen.blit(self.obj.move_object(self.obj, 20, 20), (0, self.obj.get_pos_x(self.obj)))
-            screen.blit(player.update(player,timedelta), (player.get_pos_x(player), player.get_pos_y(player)))
+            screen.blit(self.obj.update(self.obj),(100,0))
+            screen.blit(player.update(player,timedelta), (player.get_position(player)))
+            player.collider_enter(player,self.obj)
             pygame.display.flip()
 
 

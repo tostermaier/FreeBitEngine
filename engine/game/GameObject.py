@@ -1,15 +1,19 @@
-from engine.game.Collider import Collider
-from engine.graphic import Sprite
+from engine.graphic.Sprite import Sprite
 
 
-class GameObject(Collider):
 
-    sprite = Sprite.Sprite
+class GameObject(Sprite):
+
     def __init__(self):
-        self.set_pos_x(10)
-        self.set_pos_y(10)
+       pass
 
-    def move_object(self, x, y):
-        self.set_pos_x(self,x)
-        self.set_pos_y(self,y)
-        return self.sprite.draw_sprite_color(self,(64, 64, 64))
+
+    def move_object(self, speed_x, y):
+        self.set_x(self,self.x+100*(speed_x/1000))
+
+
+    def update(self):
+      return  self.draw_sprite_color(self,(64, 64, 64))
+
+    def get_position(self):
+        return (self.get_x(self),self.get_y(self))
